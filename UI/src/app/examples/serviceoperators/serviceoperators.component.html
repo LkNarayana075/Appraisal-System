@@ -1,0 +1,50 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <div class="az-dashboard-one-title">
+        <div>
+          <h2 class="az-dashboard-title">AGgrid</h2>
+        </div>
+      </div>
+      <!-- az-dashboard-one-title -->
+    </div>
+  </div>
+  <!-- az-content -->
+</div>
+
+<!--  Normal Table-->
+
+<div class="container">
+  <div class="az-content-body">
+    <h4>AG Grid Example</h4>
+    <div style="margin: 10px 0px">
+      <input
+        type="text"
+        style="width: 250px"
+        class="form-control"
+        [(ngModel)]="filterdata"
+        placeholder="Search Data"
+      />
+    </div>
+    <ag-grid-angular
+      style="width: 100%; height: 500px"
+      [rowClassRules]="rowClassRules"
+      [rowHeight]="rowHeight"
+      class="ag-theme-alpine"
+      [rowData]="employeedata"
+      [columnDefs]="columnDefsToViewClients"
+      (gridReady)="onGridReady($event)"
+      [gridOptions]="gridOptions"
+      [suppressRowClickSelection]="true"
+      (cellClicked)="editStatus($event)"
+      (selectionChanged)="onSelectionChanged($event)"
+      [pagination]="true"
+      [paginationPageSize]="paginationPageSize"
+      [paginateChildRows]="true"
+      [quickFilterText]="filterdata"
+      enableFilter
+      enableSorting
+    >
+    </ag-grid-angular>
+  </div>
+</div>

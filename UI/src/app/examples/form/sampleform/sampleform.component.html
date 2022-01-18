@@ -1,0 +1,112 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <div class="az-dashboard-one-title">
+        <div>
+          <h2 class="az-dashboard-title">Form Example</h2>
+          <p class="az-dashboard-text">Check Validations and Forms</p>
+        </div>
+      </div>
+      <!-- az-dashboard-one-title -->
+    </div>
+  </div>
+  <!-- az-content -->
+</div>
+<!--form start-->
+<div class="container">
+  <div class="az-content-body">
+    <form [formGroup]="formex">
+      <div class="row">
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="Name"
+            class="form-control"
+            formControlName="fullName"
+          />
+          <span
+            *ngIf="
+              formex.controls['fullName'].hasError('required') &&
+              formex.controls['fullName'].touched
+            "
+            class="error"
+            >Name is required</span
+          >
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="Phone"
+            class="form-control"
+            formControlName="Phone"
+          />
+          <span
+            *ngIf="
+              formex.controls['Phone'].hasError('required') &&
+              formex.controls['Phone'].touched
+            "
+            >Phone number is required</span
+          >
+        </div>
+      </div>
+      <div class="row m-20">
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="Email"
+            class="form-control"
+            formControlName="Email"
+          />
+          <span
+            *ngIf="
+              formex.controls['Email'].hasError('required') &&
+              formex.controls['Email'].touched
+            "
+          >
+            Email is required
+          </span>
+          <span *ngIf="formex.controls['Email'].hasError('pattern')"
+            >Email Must be Pattern</span
+          >
+        </div>
+        <div class="col-md-6">
+          <input
+            type="text"
+            placeholder="subject"
+            class="form-control"
+            formControlName="Subject"
+          />
+          <span
+            *ngIf="
+              formex.controls['Subject'].hasError('required') &&
+              formex.controls['Subject'].touched
+            "
+            >Subject Required</span
+          >
+        </div>
+      </div>
+      <div class="row m-20">
+        <div class="col-md-12">
+          <textarea
+            cols="20"
+            rows="5"
+            class="form-control"
+            formControlName="Requirement"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row m-20">
+        <div class="col-md-12">
+          <button
+            type="button"
+            (click)="onsubmit()"
+            [disabled]="!formex.valid"
+            class="btn btn-primary"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+#background1,.card {
+ background: rgb(243, 243, 243);
+}
+#background2 {
+  background-color: rgb(231, 231, 231);
+}
+#department {
+  width: 10.8rem;
+}
+#designation {
+  width: 10.9rem;
+}
+.dropdown-menu {
+  width: 5rem;
+}
+.background2,h3 {
+  font-size: 16px;
+}
+.overflow-auto {
+  height: 200px;
+}
+.h5 {
+  font-size: 14px;
+}
+.form-select {
+  background-color:#5f6d88;
+  color: rgb(255, 254, 254);
+  height: 25px;
+  width: 10px;
+  float:right;
+  }
+.buttons {
+  float: right;
+}
+.btn-primary {
+  background-color: #5f6d88;
+}
+.btn-secondary {
+  background-color: rgb(116, 115, 115);
+}
+.form-select options
+{
+  border-radius: 0px !important;
+}
+
+.card-body span{
+  color: red;
+  margin-left: 20rem;
+}

@@ -1,0 +1,21 @@
+.sub-button {
+  border-radius: 5px;
+  background-color: #3a1257;
+}
+
+.dropdow {
+  background-color: #3a1257 !important;
+}
+.inputdata {
+  border-radius: 7px;
+  height: 50px;
+}
+.des-box {
+  border-radius: 7px;
+}
+.sub-cancel {
+  border-radius: 5px;
+}
+.failed-validation {
+  color: red;
+}

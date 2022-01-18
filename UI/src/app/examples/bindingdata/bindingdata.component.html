@@ -1,0 +1,99 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <div class="az-dashboard-one-title">
+        <div>
+          <h2 class="az-dashboard-title">UI Bind data Syntaxs</h2>
+        </div>
+      </div>
+      <!-- az-dashboard-one-title -->
+    </div>
+  </div>
+  <!-- az-content -->
+</div>
+
+<!--  Two way -->
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <h3>Directives</h3>
+      <h5>Two Way binding</h5>
+      <p>
+        <label for="example-ngModel">[(ngModel)]:</label>
+        <input
+          [(ngModel)]="inputValue"
+          class="form-control"
+          id="example-ngModel"
+        />
+        <label for="example-ngModel">[(ngModelChange)]:</label>
+        <input
+          [ngModel]="inputValuechange"
+          (ngModelChange)="setUppercaseName($event)"
+          class="form-control"
+          id="example-ngModel"
+        />
+      </p>
+
+      Enter Value is : {{ inputValue }}
+      ngmodule change is :
+      {{ inputValuechange }}
+      <br />
+      <!--NgClass Binding-->
+      <h5>NgClass Binding</h5>
+      <div [ngClass]="isSpecial ? 'nonspecial' : 'special'">
+        This div is ng class example
+      </div>
+      <br />
+      <div [style.font-size]="isSpecial ? 'x-large' : 'smaller'">
+        This div is x-large or smaller.
+      </div>
+      <a (click)="changecolor()" class="btn btn-primary"> Change Color</a>
+      <a (click)="revertcolor()" class="btn btn-primary"> Refresh Color</a>
+      <br />
+
+      <!--Ngstyle with ngmodule Binding-->
+      <h5>Ngstyle with ngmodule Binding</h5>
+
+      <br />
+      <label>italic: <input type="checkbox" [(ngModel)]="canSave" /></label> |
+      <label>normal: <input type="checkbox" [(ngModel)]="isUnchanged" /></label>
+      |
+      <button (click)="setCurrentStyles()" class="btn-primary">
+        Refresh currentStyles
+      </button>
+      <div [ngStyle]="currentStyles">
+        This div should be {{ canSave ? "italic" : "plain" }}, after clicking
+        "Refresh".
+
+        <br />
+        <br />
+        <!--Built-in structural directives-->
+        <h4>Built-in structural directives</h4>
+        <div *ngIf="isactive">Test show hide data after click</div>
+        <button (click)="showhide()" class="btn-primary">Show/Hide</button>
+
+        <!--ngSwich with ngmodule-->
+        <h5 style="margin-top: 30px">ng Swich</h5>
+        Input string : <input type="text" [(ngModel)]="num" />
+
+        <div [ngSwitch]="num">
+          <div *ngSwitchCase="'1'">One</div>
+          <div *ngSwitchCase="'2'">Two</div>
+          <div *ngSwitchCase="'3'">Three</div>
+          <div *ngSwitchCase="'4'">Four</div>
+          <div *ngSwitchCase="'5'">Five</div>
+          <div *ngSwitchDefault>This is Default</div>
+        </div>
+
+        <!--ngfor-->
+        <h5 style="margin-top: 30px">ngfor</h5>
+
+        <!--ngSwich with Bind Data-->
+
+        <h5 style="margin-top: 30px" class="clicktext">
+          ng Swich with bind Data
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>

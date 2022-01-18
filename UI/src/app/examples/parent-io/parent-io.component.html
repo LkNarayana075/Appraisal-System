@@ -1,0 +1,12 @@
+<h4 class="mt-2">Parent Component</h4>
+<button class="btn btn-warning" (click)="sendToChild()">
+  Send Chocolates to Child
+</button>
+<p *ngIf="thankYouText === 'Thank you'" class="greenPara">
+  '{{ thankYouText }}' recieved from Child
+</p>
+
+<app-inputoutput
+  [chocolateCount]="chocolate"
+  (thanks)="sayThanks($event)"
+></app-inputoutput>

@@ -1,0 +1,134 @@
+#section-1 {
+  padding-left: 0;
+}
+
+.calendar {
+  background-color: rgb(220, 220, 224);
+  padding: 0;
+  height: auto;
+}
+
+/***Staff Details***/
+.total-staff label,
+.eligible label,
+.not-eligible label {
+  font-size: 20px;
+  color: #6f6f74;
+}
+
+.total-staff span,
+.eligible span,
+.not-eligible span {
+  font-size: 40px;
+}
+
+.total-staff span {
+  color: #111743;
+}
+
+.eligible {
+  color: #545da5;
+}
+
+.not-eligible {
+  color: #e24f55;
+}
+
+/*****Appraisal-Status-Chart, Managers-List and Notifications*****/
+#managers-list_notifications {
+  margin-top: 35px;
+}
+
+.appraisal-chart {
+  position: relative;
+  width: 130px;
+  height: 220px;
+}
+
+.filter-btn {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  color: grey;
+  background-color: none;
+}
+
+.filter-btn button {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+/**Appraisal-Status-Numbers***/
+.appraisal-status-numbers {
+  display: flex;
+}
+
+.completed-status span,
+.pending-status span {
+  font-size: 45px;
+}
+
+.completed-status span {
+  color: #4cbf66;
+}
+
+.pending-status span {
+  color: #7a7173;
+}
+
+.pending-status,
+.completed-status label {
+  color: #6f6f74;
+  font-weight: bold;
+}
+
+.manager {
+  display: inline-flex;
+  /* margin-bottom: 40px; */
+}
+
+.list-unstyled{
+  margin-bottom: 0px;
+}
+.employee-numbers {
+  margin-left: 150px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/****Notifications******/
+.badge {
+  position: absolute;
+  top: 23px;
+  right: 22px;
+  font-size: large;
+  color: rgb(211, 72, 72) !important;
+  background-color: #cfcfd1 !important;
+}
+
+.notifications, .chart-manager_list {
+  height: 38rem;
+}
+
+/**List-Of-Objectievs**/
+.need-discussion,
+.differed-objective {
+  display: flex;
+}
+
+.differed-objective {
+  margin-top: 20px;
+}
+
+.need-discussion span,
+.differed-objective span {
+  font-size: 13px;
+}
+
+/**********Calendar-Events-List********/
+.event-item {
+  background-color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border-bottom: 2px solid grey;
+}

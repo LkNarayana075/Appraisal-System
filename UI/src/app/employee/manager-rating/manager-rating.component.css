@@ -1,0 +1,141 @@
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+h1,
+h4,
+p {
+    margin-top: 1%;
+}
+
+h2 {
+    font-size: 16px;
+    /* margin-top: 20px; */
+    font-weight: bold;
+}
+
+.discussion {
+    background-color: #031b4e;
+    max-height: 30px;
+    min-width: 150px;
+    border-radius: 8px;
+    margin-bottom: 3%;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h5 {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.button ul li {
+    list-style: none;
+    float: left;
+}
+
+.button {
+    border-radius: 10px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #031b4e;
+    padding: 3%;
+}
+
+.rad {
+    width: 20px;
+    height: 20px;
+    
+}
+
+.clear,
+.submit,
+.save {
+    background-color: #031b4e;
+    margin-right: 25px;
+    border-radius: 5px;
+    margin: 2%;
+}
+
+.save:hover {
+    transform: scale(1.05);
+}
+
+.submit:hover {
+    transform: scale(1.05);
+}
+
+.clear:hover {
+    transform: scale(1.05);
+}
+
+.discussion:hover {
+    transform: scale(1.05);
+}
+
+.notes {
+    border-radius: 10px;
+}
+
+.upload {
+    border-radius: 15px;
+}
+
+.box {
+    border-radius: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+.rating {
+    margin-left: -2.5rem;
+}
+
+.d-one {
+    display: none;
+}
+
+.noteactive {
+    display: block !important;
+}
+#cancelbutton {
+    background-color: #e24f55;
+    color: #fff;
+    margin-right: 0px;
+    /* margin-left: 10px; */
+  }
+  
+#submitbutton{
+
+    background-color: #545da5;
+    color: #fff;
+    margin-left: 0px;
+}
+#mngr{
+    margin-top: 20px;
+}
+#card{
+    width: 1000px;
+}
+#managercards{
+    height: 600px;
+    /* width: 50px; */
+    /* margin-top: 45px; */
+    /* margin-bottom: 20px; */
+}
+#cards{
+    height: 300px;
+    margin-bottom: 5px;
+}
+/* #button{
+    height: 500px;
+} */

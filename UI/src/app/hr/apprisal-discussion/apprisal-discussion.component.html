@@ -1,0 +1,139 @@
+<div class="container mt-5" id="main">
+  <h1 id="mainheading">Appraisal Discussion</h1>
+  <div class="main-container mt-3">
+    <div class="dropdown">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+      >
+        Select Employee
+      </button>
+      <div class="dropdown-menu">
+        <div *ngFor="let data of dis_data" >
+          <a (click)="employeedetails(data.id)" id="dropdownitem" class="dropdown-item">{{data?.first_name | titlecase}}</a>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-6 col-md-3">
+        <h3 id="field">Employee ID</h3>
+        <p id="details">{{singleemployee?.appraisee?.appraisee_id}}</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 id="field">Employee Name</h3>
+        <p id="details">{{singleemployee?.appraisee?.first_name | titlecase}} {{singleemployee?.appraisee?.last_name | titlecase}}</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 id="field">Designation</h3>
+        <p id="details">{{singleemployee?.appraisee?.designation_name | titlecase}}</p>
+      </div>
+      <div class="col-6 col-md-3">
+        <h3 id="field">Department</h3>
+        <p id="details">{{singleemployee?.appraisee?.department_name | titlecase}}</p>
+      </div>
+    </div>
+
+    <div class="row mt-5 ml-1">
+      <div class="col-md-7 border">
+        <div class="container mt-3 mb-5">
+          <h2 id="rating_table">Rating</h2>
+          <div class="row">
+            <!-- <button type="button" class=" nav nav-tabs col-6" data-toggle="collapse" data-target="#demo" style="font-size: 30px;" >Manager</button>
+                            <button type="button" class=" nav col-6" style="font-size: 30px;" data-toggle="collapse" data-target="#demo1">Employee</button>
+                         -->
+            <ul class="nav nav-tabs" id="tabs" role="tablist">
+              <li class="nav-item" class="col-6">
+                <a
+                  class="nav-link active"
+                  data-toggle="tab"
+                  href="#demo1"
+                  id="employee_rating"
+                  >Employee</a
+                >
+              </li>
+              <li class="nav-item" class="col-6">
+                <a
+                  class="nav-link"
+                  data-toggle="tab"
+                  href="#demo"
+                  id="manager_rating"
+                  >Manager</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div id="demo" class="tab-pane fade">
+              <div>
+                <h2 class="mt-3" id="objective">Overall Manager Rating - {{singleemployee?.total_manager_rating}}</h2>
+                <form *ngFor="let obj of manager_objectives; let i = index">
+                  <h4 class="mt-4">{{obj?.objective_name}}</h4>
+                <h4 id="rate" class="mt-4">Rate</h4>
+                <div class="row mt-2">
+                  <div class="col" *ngFor="let num of counter(singleemployee?.appraisee?.rating_scale);let k = index">
+                    <input type="radio" name="rating" class="rad" [checked]="(k+1) == obj?.rating" [disabled]="!((k+1)==obj?.rating)" />
+                    <br />
+                    <label class="num">{{k+1}}</label>
+                  </div> 
+                </div>
+                </form>
+              </div>
+            </div>
+            <div id="demo1" class="tab-pane active">
+              <div>
+                <h2 class="mt-3" id="objective">Overall Employee Rating - {{singleemployee?.total_appraisee_rating}}</h2>
+                <form *ngFor="let obj of appraisee_objectives; let i = index">
+                  <h4 class="mt-4">{{obj?.objective_name}}</h4>
+                <h4 id="rate" class="mt-4">Rate</h4>
+                  <div class="row mt-2">
+                    <div class="col" *ngFor="let num of counter(singleemployee?.appraisee?.rating_scale);let j = index">
+                      <input type="radio" name="rating" class="rad" [checked]="((j+1)==obj?.rating)" [disabled]="!((j+1)==obj?.rating)" />
+                      <br />
+                      <label class="num">{{j+1}}</label>
+                    </div> 
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="container" id="second_container">
+          <h2 id="raise">Raised Dispute</h2>
+          <h3 class="mt-4" id="desc"></h3>
+          <!-- <h4 class="mt-3" id="dispute_details">Her/His dispute details</h4> -->
+          <p id="description">{{singleemployee?.dispute?.description}}</p>
+          <h3 class="mt-5" id="reply">Reply From HR</h3>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                
+                
+                
+            </div>
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Sheduled Date</label>
+                    <input type="date" id="date" min="{{minDate}}" formControlName="sd"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sd.errors }" />
+                    <div *ngIf="submitted && f.sd.errors" class="invalid-feedback">
+                        <div *ngIf="f.sd.errors.required">Sheduled Date is required</div>
+                        <div *ngIf="f.sd.errors.pattern">Sheduled Date must be a valid date in the format YYYY-MM-DD</div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            
+            <div class="text-center">
+                <button class="btn btn-secondary" type="reset" id="btn2" (click)="onReset()">Cancel</button>
+                <button class="btn btn-primary ml-3 mr-1" id="btn1">Submit</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

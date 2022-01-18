@@ -1,0 +1,105 @@
+<div class="az-header">
+    <div class="container">
+        <div class="az-header-left">
+            <a class="az-logo white-text"><span></span> Apprisal System</a>
+            <a href="" id="azMenuShow" class="az-header-menu-icon d-lg-none"><span></span
+      ></a>
+        </div>
+        <!-- az-header-left -->
+        <div class="az-header-menu">
+            <div class="az-header-menu-header">
+                <a class="az-logo" style="color: #222"> Apprisal</a>
+                <a href="" class="close">&times;</a>
+            </div>
+            <!-- az-header-menu-header -->
+
+            <ul class="nav" *ngIf="this.role == 'Manager'">
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./manager/list-employees" class="nav-link mainmenudata"><img src="../../assets/img/dash2.png" class="menuicon" />
+                        <span>Employees</span></a>
+                </li>
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./manager/objectives" class="nav-link mainmenudata"><img src="../../assets/img/dash44.png" class="menuicon" /> Objective
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav" *ngIf="this.role == 'Employee'">
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./employee/manager-rating" class="nav-link mainmenudata"><img src="../../assets/img/dash.png" class="menuicon" />
+                        <span>Home</span></a>
+                </li>
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./employee/employee-details" class="nav-link mainmenudata"><img src="../../assets/img/dash44.png" class="menuicon" /> Objective
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav" *ngIf="this.role == 'HR'">
+              <li class="nav-item" routerLinkActive="active show">
+                <a routerLink="./hr/Dashboard" class="nav-link mainmenudata"><img src="../../assets/img/layout22.png" class="menuicon" /> Dashboard </a>
+            </li>
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./hr/listemployees" class="nav-link mainmenudata"><img src="../../assets/img/dash2.png" class="menuicon" /> Employee </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./hr/setCalender" class="nav-link mainmenudata"><img src="../../assets/img/dash3.png" class="menuicon" /> Set Calender
+                    </a>
+                </li>
+                <li class="nav-item" routerLinkActive="active show">
+                    <a routerLink="./hr/apprisalDiscussion" class="nav-link mainmenudata"><img src="../../assets/img/discuss.png" class="menuicon" /> Discussions
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- az-header-menu -->
+        <div class="az-header-right">
+            <a class="dropdown-toggle mr-4 ptext" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="dot">{{getShortName(this.name)}}</span>&nbsp;
+                <!-- <img src="../../assets/img/face1.jpg" alt="" class="picon " /> -->
+                <span class="text-capitalize">{{this.name}}</span> <span> ({{this.role}})</span>
+            </a>
+
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Change Password </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item cursorpointer" (click)="logout()">Logout</a>
+            </div>
+            <!-- <div class="dropdown az-profile-menu">
+        <a class="az-img-user"
+          ><img src="../../assets/img/face1.jpg" alt=""
+        /></a>
+        <div class="dropdown-menu">
+          <div class="az-dropdown-header d-sm-none">
+            <a class="az-header-arrow"
+              ><i class="fa fa-arrow-left fa-1x"></i
+            ></a>
+          </div>
+          <div class="az-header-profile">
+            <div class="az-img-user">
+              <img src="../../assets/img/face1.jpg" alt="" />
+            </div>
+           
+            <h6>Aziana Pechon</h6>
+            <span>Premium Member</span>
+          </div>
+         
+
+          <a class="dropdown-item"
+            ><i class="typcn typcn-user-outline"></i> My Profile</a
+          >
+
+          <a class="dropdown-item"
+            ><i class="typcn typcn-cog-outline"></i> Account Settings</a
+          >
+          <a class="dropdown-item"
+            ><i class="typcn typcn-power-outline"></i> Sign Out</a
+          >
+        </div>
+       
+      </div> -->
+        </div>
+        <!-- az-header-right -->
+    </div>
+    <!-- container -->
+</div>
+<!-- az-header -->

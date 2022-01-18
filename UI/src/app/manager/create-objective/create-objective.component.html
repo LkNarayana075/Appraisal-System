@@ -1,0 +1,107 @@
+<form [formGroup]="createobjective">
+  <div class="az-content az-content-dashboard">
+    <div class="container">
+      <div class="az-content-body">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="main-heading mb-4 mt-5" style="font-size: 18px">
+              Create Objectives
+            </h1>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              <label
+                class="form-label"
+                for="form4Example1"
+                style="font-size: 16px"
+                >ObjectiveName</label
+              >
+              <input
+                type="text"
+                formControlName="objective_name"
+                placeholder="Enter Objective Name"
+                id="ObjectiveName"
+                name="ObjectiveName"
+                id="form4Example1"
+                maxlength="20"
+                class="form-control inputdata"
+              />
+              <span
+                class="failed-validation"
+                *ngIf="
+                  createobjective.controls['objective_name'].hasError(
+                    'required'
+                  ) && createobjective.controls['objective_name'].touched
+                "
+              >
+                Field is Mandatory
+              </span>
+
+              <span
+                class="failed-validation"
+                *ngIf="
+                  createobjective.controls['objective_name'].hasError('pattern')
+                "
+              >
+                Objective name must be allow letters and numbers only
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="form-outline">
+              <label
+                class="form-label"
+                for="form4Example3"
+                style="font-size: 16px"
+                >ObjectiveDescription</label
+              >
+              <textarea
+                formControlName="objective_description"
+                placeholder="enter descriptiion"
+                id="ObjectiveDescription"
+                name="ObjectiveDescription"
+                maxlength="500"
+                class="form-control des-box"
+                id="form4Example3"
+                rows="6"
+              >
+              </textarea>
+              <span
+                class="failed-validation"
+                *ngIf="
+                  createobjective.get('objective_description')?.invalid &&
+                  createobjective.get('objective_description')?.touched
+                "
+              >
+                Field is Mandatory
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <button type="reset" class="btn btn-secondary sub-cancel mr-3">
+              Cancel
+            </button>
+            <button
+              type="submit"
+              [disabled]="!createobjective.valid"
+              class="btn btn-purple sub-button"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form></form>
+</form>

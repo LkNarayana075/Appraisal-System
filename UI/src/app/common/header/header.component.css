@@ -1,0 +1,24 @@
+.picon {
+    width: 50px;
+    border-radius: 50%;
+    padding-right: 5px;
+}
+
+.ptext {
+    color: #fff;
+}
+
+.cursorpointer {
+    cursor: pointer;
+}
+
+.dot {
+    height: 32px;
+    width: 33px;
+    background-color: #2457cb;
+    border-radius: 50%;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px;
+}

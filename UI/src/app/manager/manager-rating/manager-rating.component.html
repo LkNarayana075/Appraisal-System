@@ -1,0 +1,148 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <!-- Employee Details -->
+      <div class="top-container">
+        <h1>Manager Rating</h1>
+        <hr />
+        <div class="row mt-4">
+          <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <h3>Employee ID</h3>
+            <p>{{this.employeedetailslist.appraisee_id}}</p>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <h3>Employee Name</h3>
+            <p>{{this.employeedetailslist.first_name}}  {{this.employeedetailslist.last_name}}</p>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <h3>Designation</h3>
+            <p>{{this.employeedetailslist.designation_name}}</p>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3 col-xl-3">
+            <h3>Department</h3>
+            <p>{{this.employeedetailslist.department_name}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Manager rating Section -->
+      <div class="row">
+        <!--Employee Rating Section -->
+        <div class="col-md-6 col-12">
+         <!-- <div class="card shadow-lg mb-2"> -->
+          <div class="shadow-none p-3 mb-5 bg-light rounded">
+            <div class="card-body">
+              <h1 class="mb-4">Employee Rating</h1>
+              <div id="demo1" class="tab-pane active">
+                <div>
+                  <form  *ngFor="let obj of appraisee_objectives; let i = index">
+                    <h4 class="mt-4">{{obj?.objective_name}}</h4>
+                    <h4 id="rate" class="mt-4">Rate</h4>
+                    <div class="row mt-2">
+                      <div class="col" *ngFor="let num of counter(singleemployee?.appraisee?.rating_scale);let j = index">
+                        <input type="radio" name="rating" class="rad" [checked]="((j+1)==obj?.rating)" [disabled]="!((j+1)==obj?.rating)" />
+                        <br />
+                        <label class="num">{{j+1}}</label>
+                      </div> 
+                    </div>
+                    <h6>Notes</h6>
+                    <p>{{obj?.comments}}</p>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <!-- <div class="card shadow-lg mb-2"> -->
+           <div class="shadow-none p-3 mb-5 bg-light rounded">
+             <div class="card-body">
+               <h1 class="mb-4">Manager Rating</h1>
+               <div id="demo1" class="tab-pane active" *ngIf="mngrRating == null">
+                 <div>
+                   <form [formGroup]="ManagerRating" *ngFor="let obj of appraisee_objectives; let i = index">
+                     <h4 class="mt-4">{{obj?.objective_name}}</h4>
+                     <h4 id="rate" class="mt-4">Rate</h4>
+                     <div class="row mt-2">
+                       <div class="col" *ngFor="let num of counter(singleemployee?.appraisee?.rating_scale);let j = index">
+                         <input type="radio"  name="rating" class="rad" (change)="managerRating(obj?.appraisal_objective_id,j+1)" />
+                         <br />
+                         <label class="num">{{j+1}}</label>
+                       </div> 
+                     </div>
+                     <div class="row d-one" id="{{obj.appraisee_objective_id}}">
+                      <div class="col-md-12" style="display: inline-block;">
+                        <p>Notes</p>
+                        <textarea class='form-control' formControlName="{{obj.objective_name}}" (change)="updateNote($event,obj.appraisal_objective_id)" placeholder="Enter Notes"id="Notes" maxlength="500" class="form-control des-box"
+                          id="form4Example3 "
+                          rows="6"
+                        ></textarea>
+                      </div>
+                      <span class="failed-validation" *ngIf="ManagerRating.get( 'Notes')?.invalid && ManagerRating.
+                      get( 'Notes')?.touched ">
+                        *Field is Mandatory
+                      </span>
+                    </div>
+                     
+                   </form>
+                 </div>
+               </div>
+
+               <div id="demo1" class="tab-pane active" *ngIf="mngrRating != null">
+                <div>
+                  <form [formGroup]="ManagerRating" *ngFor="let obj of manager_objectives; let i = index">
+                    <h4 class="mt-4">{{obj?.objective_name}}</h4>
+                    <h4 id="rate" class="mt-4">Rate</h4>
+                    <div class="row mt-2">
+                      <div class="col" *ngFor="let num of counter(singleemployee?.appraisee?.rating_scale);let j = index">
+                        <input  type="radio"  name="rating" [checked]="(j+1) == obj?.rating" class="rad" (change)="managerRating(obj?.appraisal_objective_id,j+1)" [disabled]="!((j+1) == obj?.rating)" />
+                        <br />
+                        <label class="num">{{j+1}}</label>
+                      </div> 
+                    </div>
+                    <div class="row d-one" id="{{obj.appraisee_objective_id}}">
+                     <div class="col-md-12" style="display: inline-block;">
+                       <p>Notes</p>
+                       <!-- <textarea class='form-control' formControlName="{{obj.objective_name}}" (change)="updateNote($event,obj.appraisal_objective_id)" placeholder="Enter Notes"id="Notes" maxlength="500" class="form-control des-box"
+                         id="form4Example3 "
+                         rows="6"
+                       ></textarea> -->
+                       <p [attr.disabled]="true">{{obj?.comments}}</p>
+                     </div>
+                     <span class="failed-validation" *ngIf="ManagerRating.get( 'Notes')?.invalid && ManagerRating.
+                     get( 'Notes')?.touched ">
+                       *Field is Mandatory
+                     </span>
+                   </div>
+                    
+                  </form>
+                </div>
+              </div>
+                 
+               
+             </div>
+             </div>
+          <!--</div> -->
+         </div>
+      </div>
+
+      <!-- Action Buttons -->
+      
+      <div class="buttton">
+        <button type="button" class="btn btn-clear ml-3  float-right">
+          Clear
+        </button>
+
+        <!-- <button type="button" class="btn btn-save ml-3  float-right">
+          Save
+        </button> -->
+
+        <button type="button " class="btn btn-primary submit float-right " (click)="onSubmit()" [disabled]="!ManagerRating.valid ">
+          Submit
+        </button>
+      </div>
+     <!-- </div> -->
+    </div>
+  </div>
+</div>

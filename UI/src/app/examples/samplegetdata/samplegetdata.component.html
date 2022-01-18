@@ -1,0 +1,56 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <div class="az-dashboard-one-title">
+        <div>
+          <h2 class="az-dashboard-title">Get data with datatable</h2>
+        </div>
+      </div>
+      <!-- az-dashboard-one-title -->
+    </div>
+  </div>
+  <!-- az-content -->
+</div>
+
+<!--  GET DATA -->
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">Support : {{ supportdata?.url }}</div>
+  </div>
+</div>
+
+<!--  Normal Table-->
+
+<div class="container">
+  <div class="az-content-body">
+    <h4>Normal Table</h4>
+    <table style="width: 100%" class="table table-responsive table-striped">
+      <tr>
+        <td>S.No</td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+      </tr>
+      <tr *ngFor="let getnames of normaltable; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ getnames.first_name }}</td>
+        <td>{{ getnames.last_name }}</td>
+        <td>{{ getnames.email }}</td>
+      </tr>
+    </table>
+    <select *ngFor="let getnames of normaltable; let i = index">
+      <option value="{{ getnames.first_name }}">
+        {{ getnames.first_name }}
+      </option>
+    </select>
+  </div>
+</div>
+
+<ng-container *ngIf="isLoggedIn; then loggedIn; else loggedOut"> </ng-container>
+
+<ng-template #loggedIn>
+  <div>Welcome back, friend.</div>
+</ng-template>
+<ng-template #loggedOut>
+  <div>Please friend, login.</div>
+</ng-template>

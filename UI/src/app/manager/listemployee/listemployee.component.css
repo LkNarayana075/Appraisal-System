@@ -1,0 +1,19 @@
+.createbtn {
+  margin-left: 8px;
+  float: right;
+}
+.assignbtn {
+  float: right;
+}
+.actionbtn {
+  display: block;
+}
+
+.assignbtn {
+  background: rgb(67, 33, 96);
+  border: 0px rgb(67, 33, 96);
+}
+.createbtn {
+  background: rgb(84, 93, 165);
+  border: 0px rgb(84, 93, 165);
+}

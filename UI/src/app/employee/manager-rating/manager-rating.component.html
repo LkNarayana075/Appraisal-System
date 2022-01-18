@@ -1,0 +1,178 @@
+<div class="az-content az-content-dashboard">
+    <div class="container">
+        <div class="az-content-body">
+            <div class="row">
+                <div class="col-md-2">
+                    <h4>Employee ID</h4>
+                    <p>{{this.id}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Employee Name</h4>
+                    <p>{{this.name}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Designation</h4>
+                    <p>{{this.designation}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Department</h4>
+                    <p>{{this.department}}</p>
+                </div>
+                <div class="col-md-3">
+                    <h4>Assign To</h4>
+                    <p>{{this.manager}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <h4>Personal Rating</h4>
+                    <p>{{employeerating}}/{{ratingscale}}</p>
+                </div>
+                <div class="col-md-2">
+                    <h4>Manager Rating</h4>
+                    <p>{{managerrating}}/{{ratingscale}}</p>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-12" >
+                    <button routerLink="../../employee/employee-details" [disabled] =  "!total_mngr_rating" class="btn btn-primary mr-5 discussion pull-right">
+                    Need Discussion
+                    </button>
+                </div>
+
+            </div>
+
+
+            <form [formGroup]="createRating">
+                <div class="row" >
+                <div class="col-6" *ngIf="singleEmployee?.objectives_details == ''">
+                    <h2>Objectives</h2>
+                    <p>Rate Objectives and Submit</p>
+                    <div class="row mb-1" id="card" *ngFor="let objective of objectives; let J=index" >
+                    <div class="button col-md-7" id="card">
+
+                        <div class="col-12">
+                            <h3 class="text-capitalize">{{objective.objective_name}} </h3>
+                            <hr>
+                            <h5>Rate</h5>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="rating" *ngFor="let order of orders; let x=index ">
+                                <li class="mr-4 ">
+                                    <input [value]="order.value" formControlName="{{objective.appraisee_objective_id}}" type="radio" (change)="opennotes(order.value,objective.appraisee_objective_id)" name="orders{{J}}" class="rad " /><br />
+                                    <p class="num34 text-center">{{order.value}}</p>
+                                    
+                                </li>
+                            </ul>
+
+                        </div>
+                    
+
+
+                        <div class="row d-one " id="{{objective.appraisee_objective_id}}">
+                            <div class="col-md-12" style="display: inline-block;">
+                                <p>Notes</p>
+                                <textarea formControlName="Notes" (change)="updateNote($event,objective.appraisee_objective_id)" placeholder="Enter Notes " id="Notes " maxlength="500 " class="form-control des-box " id="form4Example3 " rows="6"></textarea>
+                                <span class="failed-validation " *ngIf="createRating.get( 'Notes')?.invalid && createRating.get( 'Notes')?.touched ">*Field is Mandatory</span>
+                                <div class="col-md-4 mt-3 ">
+                                    <input type="file " class="custom-file-input " id="validatedCustomFile " required />
+                                    <label class="custom-file-label " for="validatedCustomFile ">Proof Upload</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+                </div>
+                
+                <div class="col-6 " id="mngr" *ngIf ="singleEmployee.objectives_details != ''">
+                    <h3 class="mb-4">Self Rating</h3>
+                    <div id="managercards">
+                    <div *ngFor="let obj of appraisee_objectives; let i = index">
+                        <div class="button" id="cards">
+                            <div class="col-12 mt-3"> 
+                                <h3 class="text-capitalize">{{obj?.objective_name}}</h3>
+                                <hr>
+                                <h5 id="rate" class="mt-4">Rate</h5>
+                            </div>
+                            <form class="col-md-12" action="" *ngFor="let num of counter(singleEmployee?.appraisee?.rating_scale);let k = index">
+                                <ul class="rating">
+                                    <li class="mr-4">
+                                    <input type="radio" name="rating" class="rad" [checked]="(k+1) == obj?.rating" [disabled]="!((k+1) == obj?.rating)" />
+                                        <br />
+                                    <label class="num">{{k+1}}</label>
+                                    
+                                    </li>
+    
+                                </ul>
+                            </form>
+                            
+                            <br>
+                            <div class="col-md-12" style="display: inline-block;">
+                                <h5>Notes</h5>
+                                <p [attr.disabled]="true">{{obj?.comments}}</p>
+    
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                 </div>
+                </div>
+                
+            <div class="col-6 " id="mngr" *ngIf ="managerDisplay">
+                <h3 class="mb-4">Manager Rating</h3>
+                <div id="managercards">
+                <div *ngFor="let obj of manager_objectives; let i = index">
+                    <div class="button" id="cards">
+                        <div class="col-12 mt-3">
+                            <h3 class="text-capitalize">{{obj?.objective_name}}</h3>
+                            <hr>
+                            <h5 id="rate" class="mt-4">Rate</h5>
+                        </div>
+                        <form class="col-md-12" action="" *ngFor="let num of counter(singleEmployee?.appraisee?.rating_scale);let k = index">
+                            <ul class="rating">
+                                <li class="mr-4">
+                                <input type="radio" name="rating" class="rad" [checked]="(k+1) == obj?.rating" [disabled]="!((k+1) == obj?.rating)" />
+                                    <br />
+                                <label class="num">{{k+1}}</label>
+                                
+                                </li>
+
+                            </ul>
+                        </form>
+                        
+                        <br>
+                        <div class="col-md-12" style="display: inline-block;">
+                            <h5>Notes</h5>
+                            <p  [attr.disabled]="true">{{obj?.comments}}</p>
+
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                </div>
+                </div>
+                
+
+                
+            </div>
+            
+            <div class="d-flex justify-content-end" >
+                <button type="reset" class="btn btn-primary clear" id="cancelbutton" >Clear</button>
+                <button type="button " class="btn btn-primary submit  " (click)="onSubmit()" id="submitbutton " [disabled]="!createRating.valid ">
+                    Submit
+                </button>
+            </div>
+
+            </form>
+    
+        </div>
+
+        
+

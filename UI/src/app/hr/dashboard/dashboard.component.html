@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="az-content-body">
+    <div class="row">
+      <section class="col-md-8" id="section-1">
+        <!-- az-dashboard-one-title -->
+        <p class="h3 py-5">Dashboard</p>
+        <!---Staff-Details---->
+        <div class="row" id="staff-details">
+          <div class="col-md-4">
+            <div class="card text-center total-staff">
+              <label>Total staff</label><span>60</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center eligible">
+              <div class="card"><label>Eligible</label><span>48</span></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card text-center not-eligible">
+              <div class="card"><label>Not-Eligible</label><span>12</span></div>
+            </div>
+          </div>
+        </div>
+        <!---Chart-Managers-List ans Notifications--->
+        <div class="row" id="managers-list_notifications">
+          <div class="col-md-7">
+            <div class="card chart-manager_list">
+              <p class="h4 mt-4 ml-4">Appraisal Status</p>
+              <!--Filter-->
+              <div class="btn-group filter-btn dropleft">
+                <button
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="false"
+                  aria-expanded="false"
+                >
+                  <i class="fa-solid fa-filter fa-2x"></i>
+                </button>
+                <div class="dropdown-menu">
+                  <!-- Dropdown-menu-links -->
+                  <a class="dropdown-item">Department</a>
+                  <a class="dropdown-item">Designation</a>
+                </div>
+              </div>
+              <div class="row">
+                <!--Chart-->
+                <div class="col-md-5">
+                  <div class="appraisal-chart ml-2">
+                    <canvas id="chart"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-5">
+                  <div class="appraisal-status-numbers">
+                    <div class="completed-status mr-4 text-center">
+                      <span>38</span><br />
+                      <label>Completed</label>
+                    </div>
+                    <div class="pending-status text-center">
+                      <span>18</span><br />
+                      <label>Pending</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr />
+              <!--Managers-List-->
+              <div class="managers-list">
+                <p class="h4 ml-4">Managers List</p>
+                <div class="overflow-auto">
+                  <ul class="list-unstyled mt-4 ml-4" *ngFor="let mngr of mngrList" >
+                    <li class="az-img-user manager" >
+                      <img src="../../assets/img/face1.jpg" alt="" />
+                      <p class="lead manager-name ml-3 mt-2">{{mngr?.name | titlecase}}</p>
+                      <p class="mt-2 employee-numbers">{{mngr?.assignedEmp}}</p>
+                    </li>
+                    <br />
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="card notifications" >
+              <p class="h4 ml-4 mt-4">Notifications</p>
+              <!----Notification-Badge---->
+              <span class="badge bg-light text-dark">4</span>
+              <!----Raised-Dispute-Notifications--->
+              <span class="h5 mt-4 ml-4">Need Discussion</span>
+              <ul class="list-unstyled mt-2" *ngFor = "let dis of discussion_data">
+              
+                <li  class="az-img-user need-discussion ml-4">
+                  <img src="../../assets/img/face1.jpg" alt="" />
+                  <p class="lead ml-3">{{dis?.first_name}} <span >{{dis?.scheduled_date}}</span></p>
+                </li>
+              
+              </ul>
+
+              <!----Differed-Objective-Notifications----->
+              <!-- <p class="h5 mt-5 ml-4">Differed Objective</p> -->
+              <!-- <ul class="list-unstyled">
+                <li class="az-img-user differed-objective ml-4">
+                  <img src="../../assets/img/face1.jpg" alt="" />
+                  <p class="lead ml-3">Kane <span>12/12/2021</span></p>
+                </li>
+                <br />
+                <li class="az-img-user differed-objective ml-4">
+                  <img src="../../assets/img/face1.jpg" alt="" />
+                  <p class="lead ml-3">Kane <span>12/12/2021</span></p>
+                </li>
+                <br />
+                <li class="az-img-user differed-objective ml-4">
+                  <img src="../../assets/img/face1.jpg" alt="" />
+                  <p class="lead ml-3">Kane <span>12/12/2021</span></p>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="col-md-4" id="section-2">
+        <div class="calendar">
+          <p class="h3 pt-5 pb-3 ml-3">Calendar Dates</p>
+          <full-calendar class="calendar-section" [options]="calendarOptions"></full-calendar>
+          <!---Calendar-Events---->
+          <div class="card event-item mb-3 mx-3 pl-3 py-2">
+            <label>Objective Set Date</label><span>{{calendarDetails?.objective_set_date}}</span>
+          </div>
+          <div class="card event-item mb-3 mx-3 pl-3 py-2">
+            <label>Appraisal Start Date</label><span>{{calendarDetails?.appraisal_start_date}}</span>
+          </div>
+          <div class="card event-item my-3 mx-3 pl-3 py-2">
+            <label>Self Appraisal End Date</label><span>{{calendarDetails?.self_appraisal_end_date}}</span>
+          </div>
+          <div class="card event-item mb-3 mx-3 pl-3 py-2">
+            <label>Review End Date</label><span>{{calendarDetails?.review_end_date}}</span>
+          </div>
+          
+          <div class="card event-item mb-3 mx-3 pl-3 py-2">
+            <label>Closer Date</label><span>{{calendarDetails?.closer_date}}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

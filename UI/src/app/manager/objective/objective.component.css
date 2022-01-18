@@ -1,0 +1,92 @@
+@media (max-width: 768px) {
+  .btn,
+  .btn-group {
+    width: 100%;
+  }
+}
+
+.icons {
+  margin: 1rem;
+  font-size: 0.9rem;
+  float: right;
+}
+.icons:hover {
+  transform: scale(1.1);
+}
+.delete {
+  color: #d54c4c;
+}
+.edit {
+  color: #1e91d6;
+}
+.card-title {
+  font-size: 18px;
+  margin-top: 10px;
+}
+.card-text {
+  font-size: 14px;
+  line-height: 24x;
+  letter-spacing: normal;
+}
+.buttons {
+  margin: 1rem;
+  padding: 1rem;
+}
+.assign,
+.create {
+  margin-right: 25px;
+  background-color: #111743;
+  border: 1px solid #111743;
+}
+.assign:hover,
+.create:hover {
+  /* transform: scale(1.1);
+  transition: 0.1s; */
+  background-color: #fff;
+  color: #111743;
+  border: 1px solid #111743;
+}
+.assign:focus,
+.create:focus {
+  background-color: #111743 !important;
+}
+
+.modal {
+  border-radius: 15px;
+}
+/* .btn-cancel,
+.btn-save {
+  border-radius: 5px;
+} */
+.btn-save {
+  background-color: #111743;
+}
+.box {
+  border-radius: 5px;
+}
+.obj-title {
+  color: #111743;
+}
+.obj-content {
+  border-radius: 25px;
+  padding: 20px;
+}
+.obj-body {
+  padding: 1.5rem;
+}
+.obj-header {
+  border-bottom: none;
+}
+.obj-footer {
+  border-top: none;
+}
+.cardlist {
+  margin-top: -1rem;
+}
+.search-obj {
+  margin-top: 45px;
+  margin-left: -100px;
+}
+.warn{
+  margin-left: 20px;
+}

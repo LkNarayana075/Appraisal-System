@@ -1,0 +1,33 @@
+.failed-validation {
+    color: #ffc800 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.f-18 {
+    font-size: 18px !important;
+    color: #fff;
+}
+
+.only-show-on-hover {
+    visibility: hidden;
+}
+
+.logindiv:hover i.only-show-on-hover {
+    visibility: visible;
+    color: #fff;
+    animation: fade_in_show 0.5s;
+}
+
+@keyframes fade_in_show {
+    0% {
+        opacity: 0;
+        transform: scale(0)
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1)
+    }
+}

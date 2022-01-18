@@ -1,0 +1,133 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+      <div class="az-content-body">
+          <div class="row">
+              <div class="col-md-5">
+                  <h2 class="az-dashboard-title">List of employees</h2>
+              </div>
+              <div class="col-md-7">
+                  <div class="pullright">
+                      <div class="actionbtn">
+                          <button class="btn btn-primary discbtn" data-toggle="modal" data-target="#disqualifyModal" [disabled]="disabledisqualify">
+              <i class="fas fa-user-times"></i> Disqualify
+            </button>
+
+                          <button class="btn btn-primary assignbtn" data-toggle="modal" data-target="#exampleModal" [disabled]="disabledAssign">
+              <i class="fa fa-users" aria-hidden="true"></i> Assign Manager
+            </button>
+                          <a routerLink="../createEmployee" class="btn btn-primary createbtn">
+                              <i class="fa fa-users" aria-hidden="true"></i> Create Employee
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container">
+      <div class="az-content-body mt-20">
+          <div class="row">
+              <div class="col-md-4">
+                  <div class="custom-file col-10">
+                      <input type="file" class="custom-file-input" id="validatedCustomFile" required />
+                      <label class="custom-file-label" for="validatedCustomFile">Employee Bulk Upload...</label>
+                      <div class="invalid-feedback">
+                          Example invalid custom file feedback
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <!-- <div class="dropdown">
+                      <div class="search">
+                          <button
+                            class="btn btn-secondary dropdown-toggle"
+                            type="button"
+                            id="dropdownMenuButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                          >
+                            Select Department
+                          </button>
+                          <div class="dropdown-menu">
+                            <div *ngFor="let data of department_list" >
+                              <a (click)="departmentEmployees(data.id)" id="dropdownitem" class="dropdown-item">{{data?.department_name}}</a>
+                            </div>
+                          </div>
+                        </div>  
+                  </div> -->
+
+                  <div  class="col-lg-3 col-md-3 col-sm-4" > 
+                    <select class="form-control btn-secondary" [(ngModel)]="departmentid" id="dropdown" name="Department" (change)="get($event)" >
+                        <option id="opt" [ngValue]="undefined" selected>Select Department</option>
+                        <option id="opt" [ngValue]="data?.department_id" *ngFor="let data of DepartmentData">{{data?.department_name}}</option> 
+                    </select>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="search">
+               
+                      <input type="text" style="width:100%;" class="form-control" [(ngModel)]="filterdata" placeholder="Search Employee Data" />
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <ag-grid-angular style="width: 100%; height: 500px" [rowHeight]="rowHeight" class="ag-theme-balham" [rowData]="rowData" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)" [gridOptions]="gridOptions" [suppressRowClickSelection]="true" (cellClicked)="editStatus($event)"
+                      [rowSelection]="rowSelection" (selectionChanged)="onSelectionChanged()" [pagination]="true" [quickFilterText]="filterdata" [paginationPageSize]="10" [paginateChildRows]="true" enableFilter enableSorting>
+                  </ag-grid-angular>
+              </div>
+          </div>
+      </div>
+</div>
+
+
+<!-- Model Assign Manager-->
+<div class="modal fade left" id="exampleModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <form [formGroup]="assignManagerForm">
+              <div class="modal-body">
+                  <div class="modal-header">
+                      <h5 class="modal-title">Manager List</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  </div>
+
+                  <div class="nav flex-sm-column flex-row pt-3 pl-3">
+
+                      <div *ngFor="let data of managerlist" class="form-check form-check-inline mb-4">
+                          <input class="form-check-input check-box" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="{{data.id}}" formControlName="manager" [(ngModel)]="manager" (change)="onItemChange(data.id)" />
+                          <label class="form-check-label text-box ml-2 text-capitalize" for="inlineRadio1">{{data?.first_name}}
+              {{data?.last_name}}</label>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="d-flex flex-row justify-content-end pr-3">
+                  <button type="button" class="btn btn-success button mb-2" (click)="onSubmit()" [disabled]="!assignManagerForm.valid">Assign</button>
+              </div>
+          </form>
+      </div>
+  </div>
+
+</div>
+<div class="modal fade" id="disqualifyModal" tabindex="" role="dialog" aria-labelledby="disqualifyModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-body">
+              <h5>Confirmation</h5>
+              <hr class="mb-4" />
+              <div class="nav flex-sm-column flex-row">
+
+                  Are you sure want to disqualify?
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-success btn-sm" (click)="disqualifySubmit()" data-dismiss="modal">Yes</button>
+              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">No</button>
+          </div>
+      </div>
+  </div>
+</div>

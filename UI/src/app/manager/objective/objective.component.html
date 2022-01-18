@@ -1,0 +1,189 @@
+<div class="container pt-1">
+  <div class="d-flex justify-content-end">
+    <div class="buttons">
+      <a routerLink="../AssignObjective" class="btn btn-primary assign mt-3">
+        Assign Objectives
+      </a>
+      <a routerLink="../createObjective" class="btn btn-primary create mt-3">
+        Create Objectives
+      </a>
+    </div>
+  </div>
+
+  <div class="cardlist">
+    <div
+      class="card"
+      class="shadow-sm mt-2 mb-3 bg-white rounded"
+      *ngFor="let objective of objectivelist; let i = index;"
+    >
+      <div class="row justify-content-center">
+        <div class="card-body col-9 text-wrap">
+          <h5 class="card-title">{{ objective.objective_name }}</h5>
+          <p class="card-text">
+            {{ objective.objective_description }}
+          </p>
+        </div>
+        <div class="col-2 align-self-center">
+          <a
+            ><i
+              class="fas fa-trash-alt icons delete"
+              data-toggle="modal"
+              data-target="#deleteModalCenter"
+              (click)="ondelete(i)"
+
+            ></i
+          ></a>
+          <a
+            ><i
+              class="fas fa-pen icons edit"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+              (click)="onEditObjective(i)"
+            ></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="card" class="shadow-sm p-0 mb-3 bg-white rounded">
+      <div class="row justify-content-center">
+        <div class="card-body col-9 text-wrap">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">
+            {{obj1?.objective_description}}
+          </p>
+        </div>
+        <div class="col-2 align-self-center">
+          <a href="#"><i class="fas fa-trash-alt icons delete"></i></a>
+          <a
+            ><i
+              class="fas fa-pen icons edit"
+              data-toggle="modal"
+              data-target="#exampleModalCenter"
+            ></i
+          ></a>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content obj-content">
+      <div class="modal-header obj-header">
+        <h5 class="modal-title obj-title" id="exampleModalLongTitle">
+          Edit Objective
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="createObjective">
+        <div class="modal-body obj-body">
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Title</label>
+            <input
+              type="text"
+              class="form-control box"
+              id="exampleFormControlInput1"
+              formControlName="objective_name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label>
+            <textarea
+              class="form-control box"
+              id="exampleFormControlTextarea1"
+              rows="3"
+              formControlName="objective_description"
+            ></textarea>
+          </div>
+        </div>
+        <div class="modal-footer obj-footer">
+          <button
+            type="button"
+            class="btn btn-secondary btn-cancel"
+            data-dismiss="modal"
+            id=cancel
+          >
+            Cancel
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary btn-save"
+            (click)="onUpdateObjective()"
+          >
+            Update
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="deleteModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content obj-content">
+      <div class="modal-header obj-header">
+        <h5 class="modal-title obj-title" id="deleteModalLongTitle">Warning</h5>
+
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <p class="warn">Are you Sure You want to Delete this Objective</p>
+
+      <div class="modal-body obj-body">
+        <form>
+          <div class="modal-footer obj-footer">
+            <button
+              type="button"
+              class="btn btn-secondary btn-cancel"
+              data-dismiss="modal"
+              id="cancelbutton"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger btn-delete"
+              (click)="deleteobjective()"
+              
+            >
+              Delete
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,145 @@
+.discbtn {
+    margin-left: 8px;
+    border: 0px rgb(226, 79, 85);
+    background: rgb(226, 79, 85);
+}
+
+.assignbtn {
+    margin-left: 8px;
+    border: 0px rgb(67, 33, 96);
+    background: rgb(67, 33, 96);
+}
+
+.createbtn {
+    margin-left: 8px;
+    border: 0px rgb(84, 93, 165);
+    background: rgb(84, 93, 165);
+}
+
+.actionbtn {
+    display: block;
+}
+
+.pullright {
+    float: right;
+}
+
+.search {
+    height: 50px;
+}
+
+.fileupload {
+    color: #4f4daf;
+    height: 100px;
+    position: relative;
+    width: 100%;
+}
+
+.fileupload::before {
+    content: "Upload";
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 50px;
+    background: #4d5caf;
+    color: #fff;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: 60px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.fileupload::after {
+    content: attr(data-text);
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-color: black;
+    background: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 40px);
+    pointer-events: none;
+    z-index: 20;
+    height: 30px;
+    line-height: 40px;
+    color: #999;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.fileuploaddata {
+    position: relative;
+}
+
+.modal.right.fade .modal-dialog {
+    right: -320px;
+    -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+    -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.modal.right.fade.in .modal-dialog {
+    right: 0;
+}
+
+#exampleModal .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 320px;
+    height: 100%;
+    right: 0px !important;
+}
+
+.modal-content {
+    height: 100%;
+}
+
+.modal.fade .modal-dialog {
+    transform: translate(0, 0px) !important;
+}
+
+.upload {
+    height: 38px;
+    border-radius: 0;
+    margin-top: -2px;
+    display: inline;
+    width: 61%;
+}
+
+.failed-validation {
+    color: red;
+    display: block;
+}
+
+.btn-purple {
+    color: #fff;
+    background-color: #432160;
+    border-color: #432160;
+    height: 38px;
+    margin-top: 4px;
+}
+#dropdown{
+    width: 170px;
+    height: 40px;
+    
+}
+
+#opt{
+    background-color: white;
+    color: rgb(198, 205, 212);
+}
+.dbutton{
+    border-color: #4d5caf;
+}

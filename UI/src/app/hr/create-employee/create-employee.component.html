@@ -1,0 +1,233 @@
+<div class="container">
+    <br />
+    <h2>Create Employee</h2>
+    <br />
+    <!-- Form Starts Here-->
+    <form [formGroup]="myform" (ngSubmit)="Save()">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="id">Employee Id <span style="color: red">*</span></label>
+                    <input id="id" type="text" name="employeeId" (change)="isAppraiseeIdUnique($event)" [(ngModel)]="uniqueAppraiseeId" placeholder="Enter Employee Id" class="form-control" formControlName="employeeId" />
+
+                    <span *ngIf="myform.controls['employeeId'].hasError('required') && myform.controls['employeeId'].touched" class="text-danger">
+            Employee id required
+          </span>
+
+                    <span *ngIf="myform.controls.employeeId.errors?.pattern" class="text-danger">Enter only number.</span>
+                    <span *ngIf="appraiseeidexist" class="text-danger">
+                        {{existappraiseeid}} is already exists
+                       </span>
+                    
+        </div>
+            </div>
+            <div class="col-lg-4 col-md-5 mt-0">
+                <div class="form-group">
+                    <label>Role <span style="color: red">*</span></label>
+                    <select class="form-control" name="role" formControlName="role" >
+                        <option ngValue="" selected disabled>Select Role</option>
+                        <option [ngValue]="role.role_id" *ngFor="let role of roleslist">{{role?.role_name}}</option>
+          </select>
+                    <div *ngIf="
+              !myform.controls.role?.valid &&
+              (myform.controls.role?.dirty ||
+                myform.controls.role?.touched)
+            ">
+                        <span class="text-danger"> role Required</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-5">
+                <div class="form-group">
+                    <label for="id1">First Name <span style="color: red">*</span></label>
+                    <input id="id1" type="text" name="firstname" placeholder="Enter First Name" class="form-control" formControlName="firstname" />
+                    <div *ngIf="
+              !myform.controls.firstname?.valid &&
+              (myform.controls.firstname?.dirty ||
+                myform.controls.firstname?.touched)
+            ">
+                        <span class="text-danger"> First name is required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-5">
+                <div class="form-group">
+                    <label for="id2">Middle Name
+            <span style="text-decoration-color: burlywood">(optional)</span></label>
+                    <input id="id2" type="text" name="middlename" placeholder="Enter Middle Name" class="form-control" formControlName="middlename" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-5">
+                <div class="form-group">
+                    <label for="id1">Last Name <span style="color: red">*</span></label>
+                    <input id="id1" type="text" name="lastname" placeholder="Enter Last Name" class="form-control" formControlName="lastname" />
+                    <div *ngIf="
+              !myform.controls.lastname?.valid &&
+              (myform.controls.lastname?.dirty ||
+                myform.controls.lastname?.touched)
+            ">
+                        <span class="text-danger"> Last name is required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="id4">Email <span style="color: red">*</span></label>
+                    <input id="id4" type="text" name="email" (change)="isEmailUnique($event)" [(ngModel)]="uniqueEmail" placeholder="Enter Email Id" class="form-control" formControlName="email" />
+                    <span *ngIf="myform.controls['email'].hasError('pattern')" class="text-danger">
+            Email id should be in specific pattern
+          </span>
+                    <span *ngIf="myform.controls['email'].hasError('required') && myform.controls['email'].touched" class="text-danger">
+            Email id required
+          </span>
+          <span *ngIf="emailexist" class="text-danger">
+           {{existmail}} is already exists
+          </span>
+          <span *ngIf="emailexit" class="text-danger">
+           </span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="id8">Mobile Number <span style="color: red">*</span></label>
+                    <input id="id8" type="text" class="form-control" (change)="isMobilenumUnique($event)" [(ngModel)]="uniqueMobileNo" placeholder="Enter Phone Number" name="mobilenumber" required formControlName="mobilenumber" />
+
+
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('required') && myform.controls['mobilenumber'].touched" class="text-danger">
+            Contact number required
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('pattern')" class="text-danger">
+            Contact number should be in numbers only
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('minlength')" class="text-danger">
+            Contact number must be 10 digits
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('maxlength')" class="text-danger">
+            Contact number should not be  greather than 10 characters
+          </span>
+          <span *ngIf="mobileexist" class="text-danger">
+            {{existmobile}} is already exists
+           </span>
+                </div>
+            </div> 
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="id8">Mobile Number <span style="color: red">*</span></label>
+                    <input id="id8" type="text" class="form-control" placeholder="Enter Phone Number" name="mobilenumber" required formControlName="mobilenumber" />
+
+
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('required') && myform.controls['mobilenumber'].touched" class="text-danger">
+            Contact number required
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('pattern')" class="text-danger">
+            Contact number should be in numbers only
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('minlength')" class="text-danger">
+            Contact number must be 10 digits
+          </span>
+                    <span *ngIf="myform.controls['mobilenumber'].hasError('maxlength')" class="text-danger">
+            Contact number should not be  greather than 10 characters
+          </span>
+                </div>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <label>Department <span style="color: red">*</span></label>
+                    <select class="form-control" name="department" formControlName="department">
+                        <option value="" selected disabled>Select Department</option>
+                        <option [ngValue]="department.department_id" *ngFor="let department of departmentslist">{{department?.department_name}}</option>
+          </select>
+                    <div *ngIf="
+              !myform.controls.department?.valid &&
+              (myform.controls.department?.dirty ||
+                myform.controls.department?.touched)
+            ">
+                        <span class="text-danger"> Department Required</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <div class="form-group">
+                    <label>Designation <span style="color: red">*</span></label>
+                    <select class="form-control" name="designation" formControlName="designation">
+                        <option value="" selected disabled>Select Designation</option>
+                        <option [ngValue]="designation.designation_id" *ngFor="let designation of designationslist">{{designation?.designation_name}}</option>
+          </select>
+                    <div *ngIf="
+              !myform.controls.designation?.valid &&
+              (myform.controls.designation?.dirty ||
+                myform.controls.designation?.touched)
+            ">
+                        <span class="text-danger"> Designation Required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="id9">Joining Date <span style="color: red">*</span></label>
+                    <input id="id9" class="form-control"  name="dateofjoining" [maxDate]="maxDate" [minDate]="minDate" formControlName="dateofjoining" bsDatepicker  placeholder="Enter Joining  Date" [bsConfig]="{ containerClass : 'theme-default', dateInputFormat: 'YYYY-MM-DD'}" autocomplete="off"
+                    />
+
+                    <span *ngIf="
+            !myform.controls.dateofjoining?.valid &&
+            (myform.controls.dateofjoining?.dirty ||
+              myform.controls.dateofjoining?.touched)
+          ">
+          <span class="text-danger">Joining date required</span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="idq">Location<span style="color: red">*</span></label>
+                    <input id="idq" placeholder="Location" class="form-control" formControlName="location" type="text" ngx-google-places-autocomplete #placesRef="ngx-places" [options]='googlePlacesOptions' (onAddressChange)="handleAddressChange($event)" />
+
+                    <div *ngIf="
+              !myform.controls.location?.valid &&
+              (myform.controls.location?.dirty ||
+                myform.controls.location?.touched)
+            ">
+                        <span class="text-danger">Location required</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="form-group">
+                    <label for="idq">Location<span style="color: red">*</span></label>
+                    <input id="idq" placeholder="Location" class="form-control" formControlName="location" type="text" ngx-google-places-autocomplete #placesRef="ngx-places" [options]='googlePlacesOptions' (onAddressChange)="handleAddressChange($event)" />
+
+                    <div *ngIf="
+              !myform.controls.location?.valid &&
+              (myform.controls.location?.dirty ||
+                myform.controls.location?.touched)
+            ">
+                        <span class="text-danger">Location required</span>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <br />
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-xs-4">
+                <div class="form-group">
+                    <input type="reset" class="btn btn-secondary" name="cancel" value="Cancel" />
+                    <input type="submit" class="btn  btn-primary form-check-inline ml-5" value="Submit" name="Submit" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <div class="row">
+        <div class="col-md-7">
+          <h2 class="az-dashboard-title">List of employees</h2>
+        </div>
+        <div class="col-md-5 pull-right">
+          <div class="actionbtn">
+            <a
+              class="btn btn-primary createbtn"
+              routerLink="../createObjective"
+            >
+              <i class="fas fa-user-plus"></i> Create Objective
+            </a>
+
+            <a
+              class="btn btn-primary assignbtn"
+              routerLink="../AssignObjective"
+            >
+              <i class="fa fa-users" aria-hidden="true"></i> Assign Objective
+            </a>
+          </div>
+        </div>
+      </div>
+      <ag-grid-angular 
+      style="margin-top: 10px; width: 100%; height: 500px !important"
+      [rowHeight] ="rowHeight"
+      class="ag-theme-balham"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      (gridReady)="onGridReady($event)"
+      [gridOptions]="gridOptions"
+      [suppressRowClickSelection]="true"
+      (cellClicked)="editStatus($event)"
+      [rowSelection]="rowSelection"
+      (selectionChanged)="onSelectionChanged($event)"
+      [pagination]="true"
+      [quickFilterText] = "filterdata"
+      [paginationPageSize]="10"
+      [paginateChildRows]="true"
+      enableFilter
+      enableSorting
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+</div>

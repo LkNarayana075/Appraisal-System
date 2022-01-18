@@ -1,0 +1,152 @@
+#main {
+  margin-bottom: 150px;
+}
+
+#mainheading {
+  font-size: 18px;
+}
+.textarea {
+  width: 100%;
+  padding: 20px;
+}
+#dropdownMenuButton {
+  background-color: rgb(16, 23, 67);
+  font-size: 14px;
+}
+
+#dropdownitem {
+  width: 152px;
+  border-bottom: 1px solid lightgrey;
+}
+
+#field {
+  font-size: 16px;
+}
+
+#details {
+  font-size: 14px;
+}
+
+#rating_table {
+  font-size: 16px;
+}
+
+#tabs {
+  width: 100%;
+}
+
+#manager_rating {
+  text-align: center;
+  font-size: 16px;
+  background-color: lightgrey;
+}
+
+#employee_rating {
+  text-align: center;
+  font-size: 16px;
+  background-color: lightgrey;
+}
+
+#rate {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.container {
+  height: auto;
+}
+.col {
+  font-size: 16px;
+  font-weight: bolder;
+}
+#cols1 {
+  font-size: 16px;
+  font-weight: bolder;
+}
+#cols {
+  font-weight: normal;
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.num {
+  font-weight: normal;
+  font-size: 15px;
+}
+.rad {
+  width: 15px;
+  height: 15px;
+}
+
+/* #second_container{
+    margin-left: 30px;
+} */
+
+#raise {
+  font-size: 16px;
+}
+
+#desc {
+  font-size: 16px;
+}
+#dispute_details {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#description {
+  font-size: 14px;
+}
+
+#reply {
+  font-size: 16px;
+}
+
+#btn1 {
+  height: 35px;
+  font-size: 14px;
+  background-color: rgb(84, 93, 165);
+  color: white;
+}
+
+#btn2 {
+  height: 35px;
+  font-size: 14px;
+  background-color: rgb(226, 79, 85);
+  color: white;
+}
+
+#submit_btn {
+  color: white;
+}
+
+#objective {
+  font-size: 16px;
+}
+
+#buttons{
+  margin-left: 20px;
+}
+
+#date{
+  width: 200px;
+  height: 40px; 
+  padding-left: 10px; 
+  border-radius: None; 
+  font-size: 16px;
+}
+#btn1 {
+  height: 35px;
+  font-size: 14px;
+  background-color: rgb(84, 93, 165);
+  color: white;
+}
+
+#btn2 {
+  height: 35px;
+  font-size: 14px;
+  background-color: rgb(226, 79, 85);
+  color: white;
+}

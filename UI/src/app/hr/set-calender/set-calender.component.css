@@ -1,0 +1,119 @@
+.setemployee {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.pull-right {
+  float: right;
+  color: white;
+}
+.clerbtn {
+  margin-right: 8px;
+  margin-top: 10px;
+}
+.applybtn {
+  margin-top: 10px;
+}
+
+.form-control {
+  width: 300px;
+}
+.date-picker {
+  display: inline-flex;
+}
+.date-picker-5 {
+  margin-left: 20px;
+}
+.savebtn {
+  margin-top: 10px;
+  margin-right: 8px;
+}
+.floating {
+  margin-top: 20px;
+}
+.floater {
+  margin-top: 15px;
+}
+.h5 {
+  font-size: 16px;
+}
+.year {
+  margin-top: 10px;
+  font-size: 30px;
+}
+.month {
+  font-size: 30px;
+}
+.term {
+  margin-top: 10px;
+}
+.clearC {
+  margin-top: 10px;
+  color: darkgray;
+  font-size: 20px;
+}
+.applyC {
+  margin-top: 10px;
+
+  font-size: 20px;
+}
+
+.saveC {
+  font-size: 20px;
+}
+.form-select {
+  margin-top: 5px;
+  font-size: 20px;
+}
+.carddesign {
+  width: 100%;
+}
+.card-input-element + .card {
+  width: 100%;
+  color: #222;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  display: block !important;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+
+.card-input-element + .card:hover {
+  cursor: pointer;
+}
+
+
+
+.card-input-element:checked + .card {
+  border: 2px solid #ccc;
+  background-color: #ccc;
+  -webkit-transition: border 0.3s;
+  -o-transition: border 0.3s;
+  transition: border 0.3s;
+}
+
+
+@-webkit-keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    -webkit-transform: rotateZ(-20deg);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: rotateZ(0deg);
+  }
+}
+
+@keyframes fadeInCheckbox {
+  from {
+    opacity: 0;
+    transform: rotateZ(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateZ(0deg);
+  }
+}

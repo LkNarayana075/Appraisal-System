@@ -1,0 +1,364 @@
+<div class="az-content az-content-dashboard">
+  <div class="container">
+    <div class="az-content-body">
+      <!-- Set Apprisal  -->
+      <form [formGroup]="formex">
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Set Appraisal Calendar</h4>
+          <div class="dropdown">
+            <ul class="dropdown-menu">
+             </ul>
+          </div>
+        </div>
+      </div> 
+      <div class="row term">
+        <div class="col-md-12">
+          <h4>Appraisal Term</h4>
+        </div>
+      </div>
+     <div class="row month" style="margin-top: 10px">
+        <div class="col-md-4">
+          <label class="carddesign">
+            <input
+              type="radio"
+              name="demo"
+              value="1"
+              (click)="oneyear()"
+              
+              formControlName="oneyear"
+              class="card-input-element d-none"
+              id="demo2"
+            />
+            <div class="card card-body bg-light">1 year</div>
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="carddesign">
+            <input
+              type="radio"
+              name="demo"
+              value="6"
+              (click)="sixmon()"
+              formControlName="oneyear"
+              class="card-input-element d-none"
+              id="demo2"
+            />
+            <div class="card card-body bg-light card1">6 Mon</div>
+          </label>
+        </div>
+        <div class="col-md-4">
+          <label class="carddesign">
+            <input
+              type="radio"
+              name="demo"
+              value="3"
+              (click)="threemon()"
+              formControlName="oneyear"
+              class="card-input-element d-none"
+              id="demo1"
+            />
+            <div class="card card-body bg-light">3 Mon</div>
+          </label>
+        </div>
+      </div>
+      <div  *ngIf="oneyearqualification">
+      <div class="card card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Qualification Criteria</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-12 ml-3" style="margin-top: 5px">
+                <h5>Compare with joining date</h5>
+              </div>
+            </div>
+          </div>
+        <div class="row month" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="demos"
+                  value="9"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">9 Mon</div>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="demos"
+                  value="6"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">6 Mon</div>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="demos"
+                  value="3"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">3 Mon</div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div  *ngIf="sixmonqualification">
+        <div class="card card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Qualification Criteria</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-12 ml-3" style="margin-top: 5px">
+                <h5>Compare with joining date</h5>
+              </div>
+            </div>
+          </div>
+          <div class="row month" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                 type="radio"
+                  name="rads"
+                  value="3"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">3 Mon</div>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="rads"
+                  value="2"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">2 Mon</div>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="rads"
+                  value="1"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">1 Mon</div>
+              </label>
+            </div>
+          </div>
+         </div>
+      </div>
+      <div  *ngIf="threemonqualification">
+        <div class="card card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Qualification Criteria</h4>
+            </div>
+            <div class="row">
+              <div class="col-md-12 ml-3" style="margin-top: 5px">
+                <h5>Compare with joining date</h5>
+              </div>
+            </div>
+          </div>
+       <div class="row month" style="margin-top: 10px">
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="dats"
+                  value="2"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">2 Mon</div>
+              </label>
+            </div>
+            <div class="col-md-4">
+              <label class="carddesign">
+                <input
+                  type="radio"
+                  name="dats"
+                  value="1"
+                  formControlName="halfyear"
+                  class="card-input-element d-none"
+                  id="demo1"
+                />
+                <div class="card card-body bg-light">1 Mon</div>
+              </label>
+            </div>
+   
+          </div>
+        </div>
+      </div>
+     <div class="row" style="margin-top: 10px;">
+          <div class="col-md-12">
+            <h3>Last Date for</h3>
+          </div>
+        </div>
+        <div class="row floater">
+          <div class="col-md-4">
+            <h5>Objective Setting</h5>
+            <input type="text" 
+            class="form-control"
+            (ngModelChange)="Objectivedatavalue()"
+            formControlName="Objective"
+            bsDatepicker
+            [bsConfig]="{ containerClass : 'theme-default',dateInputFormat: 'YYYY-MM-DD'}"
+            autocomplete="off"
+            placeholder="Objective Date"
+            />
+            <span
+            *ngIf="
+              formex.controls['Objective'].hasError('required') &&
+              formex.controls['Objective'].touched
+            "
+            class="text-danger"
+            >Objective Setting date is required</span
+            >
+          </div>
+    
+          <div class="col-md-4">
+            <h5> Appraisal Start Date</h5>
+            <input type="text" class="form-control"
+              formControlName="startdate"
+              bsDatepicker [minDate]="minDate"
+              [bsConfig]="{ containerClass : 'theme-default', dateInputFormat: 'YYYY-MM-DD'}"
+              autocomplete="off"
+              placeholder="Apprisal Start Date"
+               />
+              <span
+              *ngIf="
+                formex.controls['startdate'].hasError('required') &&
+                formex.controls['startdate'].touched
+              "
+              class="text-danger"
+              >Appraisal Start Date is required</span
+              >
+          </div>
+  
+          <div class="col-md-4" >
+            <h5>Self Appraisal</h5>
+            <select
+            (change)="reviewsdata($event)"
+          class="form-control"
+          ([ngModel]) ="reviewdatavalue"
+           formControlName="reviews"
+        >
+        <option   value="" [selected]="true" disabled>Select Apprisal</option>
+        
+          <option value="1">1 week</option>
+          <option value="2">2 week</option>
+          <option value="3">3 week</option>
+        </select>
+        <span
+        *ngIf="
+          formex.controls['reviews'].hasError('required') &&
+          formex.controls['reviews'].touched
+        "
+        class="error"
+        >Self Appraisal is required</span
+        >
+          </div>
+        </div>
+        <div class="row floating">
+          <div class="col-md-4">
+            <h5>Appraisal Reviews</h5>
+            <select
+            (change)="normalizationdata($event)"
+          class="form-control"
+          ([ngModel]) ="normalizationdatavalue"
+          formControlName="normalization"
+        >
+        <option   value="" [selected]="true" disabled>Select Normalization</option>
+        <option value="1" >1 week</option>
+          <option value="2">2 week</option>
+          <option value="3">3 week</option>
+        </select>
+        <span
+        *ngIf="
+          formex.controls['normalization'].hasError('required') &&
+          formex.controls['normalization'].touched
+        "
+        class="text-danger"
+        > Appraisal Reviews is required</span
+        >
+          </div>
+          <div class="col-md-4">
+            <h5>Closed Appraisal</h5>
+            <select
+            (change)="closeddata($event)"
+          class="form-control"
+          ([ngModel]) ="closedapprisalvalue"
+          formControlName="closed"
+        >
+        <option   value="" [selected]="true" disabled>Select Closed</option>
+        <option value="1" >1 week</option>
+          <option value="2">2 week</option>
+          <option value="3">3 week</option>
+        </select>
+        <span
+            *ngIf="
+              formex.controls['closed'].hasError('required') &&
+              formex.controls['closed'].touched
+            "
+            class="text-danger"
+            >Closed Appraisal is required</span
+            >
+          </div>
+          <div class="col-md-4">
+            <h5> Rating scale</h5>
+            <select
+          class="form-control"
+    
+          formControlName="rating"
+        >
+        <option  value="" [selected]="true" disabled >Select Rating scale</option>
+        <option value="1">5</option>
+          <option value="2">10</option> 
+        </select>
+        <span
+            *ngIf="
+              formex.controls['rating'].hasError('required') &&
+              formex.controls['rating'].touched
+            "
+            class="text-danger" 
+            >Rating scale is required</span
+            >
+          </div>
+        <div class="col-md-12">
+          <button type="button" class="btn-primary btn applybtn pull-right" (click)=
+          "onsubmit()"  [disabled]="!formex.valid">submit</button>
+          <button type="button" (click)="reset()" class="btn btn-danger clerbtn pull-right">Clear</button>
+       </div>
+       
+       </div>
+      </form>
+    </div> 
+  </div>
+</div>
+

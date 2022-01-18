@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-balham.css";
+
+@media only screen and (max-width: 990px) {
+  .menuicon {
+    display: none;
+  }
+  .mainmenudata {
+    color: #222 !important;
+  }
+}
+
+/***Appraisal-Calendar**/
+@import "~@fullcalendar/core/main.css";
+@import "~@fullcalendar/daygrid/main.css";
+
+.fc .fc-scroller-liquid-absolute,
+.fc .fc-scroller {
+  overflow: hidden !important;
+}
+
+.calendar-section {
+  padding: 15px;
+  height: 365px;
+}
+.fc .fc-button-primary {
+  display: none !important;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: #1294f2 !important;
+}
+
+.fc-scrollgrid-sync-inner a {
+  color: black;
+}
+
+.fc-toolbar-title {
+  color: #828282;
+}
+
+.fc-day-today .fc-daygrid-day-top a {
+  color: white;
+}

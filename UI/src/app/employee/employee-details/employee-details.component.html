@@ -1,0 +1,58 @@
+<!-- cointainer Starts -->
+<div class="container mt-4">
+  <h2>Employee Details</h2>
+  <!-- Employee Details div -->
+  <div class="row mt-4">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+      <h4>Employee ID</h4>
+      <p>{{this.id}}</p>
+    </div>
+
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <h4>Employee Name</h4>
+      <p>{{this.name}}</p>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+      <h4>Designation</h4>
+      <p>{{this.designation_name}}</p>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+      <h4>Department</h4>
+      <p>{{this.department}}</p>
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-2">
+      <h4>Assign To</h4>
+      <p>{{this.manager}}</p>
+    </div>
+  </div>
+  <!-- Employee Deatils Div Ends -->
+  <hr/>
+  <div class="row mt-2">
+    <!-- Raise Dispute Section -->
+    <div class="col">
+      <h3 class="mt-1">Need Discussion</h3>
+      <h5 class="mt-1">Description</h5>
+      <form [formGroup]="discussion" (ngSubmit)="raiseDiscussion()" >
+        <div class="form-group">
+          <textarea
+            class="form-control mt-1 shadow-none shadow p-3 bg-white rounded"
+            rows="5"
+            formControlName="needdiscusstion"
+          ></textarea>
+          <button type="submit"
+            class="btn btn-primary mr-5 discussion pull-right"
+            class="float-right btn btn ml-2 mt-2"
+            id="submitbutton"
+              >Submit</button>
+          <button type="reset" class="float-right btn btn mt-2" id="cancelbutton"
+          >Cancel</button>
+                
+        </div>
+      </form>
+      <!-- Raise Dispute Section ends -->
+    </div>
+    <!-- Raised Dispte Section Start -->
+    <!--Raised Dispte Section Start -->
+  </div>
+
+</div>

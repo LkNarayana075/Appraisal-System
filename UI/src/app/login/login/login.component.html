@@ -1,0 +1,74 @@
+<div class="az-signin-wrapper fullheight">
+    <div class="az-card-signin">
+        <h1 class="az-logo" *ngIf="showlogin">
+            Apprisal<span></span> &nbsp;System login
+        </h1>
+        <h1 class="az-logo" *ngIf="showforgot">Apprisal System</h1>
+        <p *ngIf="showforgot"><span class="f-18">Forgot Password</span></p>
+        <div class="az-signin-header">
+            <form [formGroup]="LoginForm" *ngIf="showlogin">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" formControlName="UserName" placeholder="Enter your email" />
+                    <span *ngIf="
+              LoginForm.controls['UserName'].hasError('required') &&
+              LoginForm.controls['UserName'].touched
+            " class="failed-validation">
+            User Name Required
+          </span>
+                    <span *ngIf="LoginForm.controls['UserName'].hasError('pattern')" class="failed-validation">
+            Email Id Should be in Specific Pattern
+          </span>
+                </div>
+                <!-- form-group -->
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter your password" />
+                    <span *ngIf="
+              LoginForm.controls['password'].hasError('required') &&
+              LoginForm.controls['password'].touched
+            " class="failed-validation">
+            Password Required
+          </span>
+                </div>
+
+                <button (click)="onSubmit()" [disabled]="!LoginForm.valid" class="btn btn-az-primary btn-block">
+          Sign In
+        </button>
+            </form>
+
+            <form [formGroup]="Forgotform" *ngIf="showforgot">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" class="form-control" formControlName="forgotUserName" placeholder="Enter your email" />
+                    <span *ngIf="
+              LoginForm.controls['UserName'].hasError('required') &&
+              LoginForm.controls['UserName'].touched
+            " class="failed-validation">
+            User Name Required
+          </span>
+                    <span *ngIf="LoginForm.controls['UserName'].hasError('pattern')" class="failed-validation">
+            Email Id Should be in Specific Pattern
+          </span>
+                </div>
+
+                <button (click)="onforgotSubmit()" [disabled]="!Forgotform.valid" class="btn btn-az-primary btn-block">
+          Submit
+        </button>
+            </form>
+
+        </div>
+        <!-- az-signin-header -->
+        <div class="az-signin-footer" *ngIf="showlogin">
+            <p class="pt-2"><a (click)="forgot()" class="pointer">Forgot password ?</a></p>
+        </div>
+        <div class="az-signin-footer" *ngIf="showforgot">
+            <p class="pt-2 logindiv">
+                <a (click)="login()" class="pointer"> <i class="fas fa-arrow-left only-show-on-hover"></i> Login</a>
+            </p>
+        </div>
+        <!-- az-signin-footer -->
+    </div>
+    <!-- az-card-signin -->
+</div>
+<!-- az-signin-wrapper -->
